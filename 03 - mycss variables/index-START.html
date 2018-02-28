@@ -71,8 +71,14 @@
 
   }
 
+  let mousedown = false;
+
   items.forEach(input => input.addEventListener('change',handleUpdate));
-  items.forEach(input => input.addEventListener('mousemove', handleUpdate));
+  items.forEach(input => input.addEventListener('mousemove',mousedown && handleUpdate));
+  items.forEach(input => input.addEventListener('mousedown', mousedown = true));
+  items.forEach(input => input.addEventListener('mouseup', mousedown = false));
+
+
   </script>
 
 </body>
